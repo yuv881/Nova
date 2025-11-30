@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA 3D | AI Voice Assistant</title>
+    <link rel="stylesheet" href="style.css?v=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;600&family=Courier+New&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+
+<body>
+    <!-- 3D Canvas Background -->
+    <div id="canvas-container"></div>
+
+    <!-- Floating HUD Interface -->
+    <div class="app-container">
+        <header>
+            <div class="logo">AURA 3D</div>
+            <div class="connection-status online"></div>
+        </header>
+
+        <main>
+            <!-- Spacer to push content around the 3D sphere -->
+            <div class="visualizer-spacer"></div>
+
+            <div class="status-display">
+                <div class="status-line"></div>
+                <p id="status-text">SYSTEM ONLINE</p>
+                <div class="status-line"></div>
+            </div>
+
+            <div class="chat-area" id="chat-area">
+                <div class="message ai-message">
+                    System initialized. Visual core active.
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <button id="mic-button" class="mic-button">
+                <i class="fas fa-microphone"></i>
+            </button>
+        </footer>
+    </div>
+
+    <!-- Main Script with Cache Busting -->
+    <script src="script.js?v=4"></script>
+</body>
+
+</html>

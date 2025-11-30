@@ -1,0 +1,154 @@
+:root {
+    --bg-color: #050505;
+    --text-color: #ffffff;
+    --accent-color: #ffffff;
+    --subtle-color: rgba(255, 255, 255, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 3D Canvas Background - Full Screen */
+#canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* Minimal Interface Layer */
+.app-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 600px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 20px;
+    pointer-events: none;
+    /* Let clicks pass to canvas */
+}
+
+header {
+    text-align: center;
+    opacity: 0.8;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 200;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Status Text - Minimal & Centered */
+.status-display {
+    margin-top: 20px;
+}
+
+#status-text {
+    font-size: 0.9rem;
+    font-weight: 300;
+    letter-spacing: 4px;
+    color: var(--subtle-color);
+    text-transform: uppercase;
+}
+
+/* Chat Area - Floating & Clean */
+.chat-area {
+    position: absolute;
+    bottom: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    pointer-events: auto;
+}
+
+.message {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin: 10px 0;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+.user-message {
+    color: var(--subtle-color);
+}
+
+.ai-message {
+    color: var(--text-color);
+    font-weight: 400;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Minimal Mic Button */
+footer {
+    display: flex;
+    justify-content: center;
+    pointer-events: auto;
+}
+
+.mic-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid var(--subtle-color);
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.mic-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+    border-color: var(--text-color);
+}
+
+.mic-button.active {
+    border-color: var(--text-color);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+}
